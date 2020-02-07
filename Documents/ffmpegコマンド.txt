@@ -1,0 +1,1 @@
+ffmpeg -r 10 -i %08d_color.ppm -vcodec libx264 -pix_fmt yuv420p -r 50 out.mp4
