@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 569136175}
   - component: {fileID: 569136174}
   - component: {fileID: 569136173}
+  - component: {fileID: 569136180}
   m_Layer: 0
   m_Name: UpdateBoard
   m_TagString: Untagged
@@ -505,14 +506,27 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 569136172}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.27, y: -4.29, z: 30}
-  m_LocalScale: {x: 3, y: 1, z: 0.1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 18.45, y: -51.555004, z: -9.675007}
+  m_LocalScale: {x: 7.5, y: 2.5000005, z: 0.25000006}
   m_Children:
   - {fileID: 1493340208}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 909478182}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &569136180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 569136172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e058f1721d0f54290e8fa5ab839ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraoff: 0
+  imagetarget: {fileID: 909478176}
 --- !u!1001 &764584264
 Prefab:
   m_ObjectHideFlags: 0
@@ -788,8 +802,9 @@ Transform:
   m_Children:
   - {fileID: 1878329155}
   - {fileID: 1530616028}
+  - {fileID: 569136179}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &1172021481
 Prefab:
@@ -1445,7 +1460,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &1878329152
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1854,16 +1869,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpdateTime: 0
-  Frame: 
+  FrameB: 
+  FrameT: 
+  TimeB: 
+  TimeT: 
   id: 
   Xmin: 
   Ymin: 
   Width: 
   Height: 
   Depth: 
-  FrameTake: 
+  Yobi: 
+  YobiYobi: 
   cnt: 0
-  MaxFrame: 0
+  MaxTime: 0
   Plane0: {fileID: 1985062520}
   Plane1: {fileID: 2023643051}
   Plane2: {fileID: 764584266}

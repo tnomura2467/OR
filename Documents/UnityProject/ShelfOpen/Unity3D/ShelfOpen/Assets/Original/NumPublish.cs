@@ -45,14 +45,14 @@ public class NumPublish : MonoBehaviour {
     void NumRes(Message message)
     {
         DBinfo datas = (DBinfo)message;
-        Frame = datas.Frame;
+        //Frame = datas.Frame;
         id = datas.id;
         Xmin = datas.Xmin;
         Ymin = datas.Ymin;
         Width = datas.Width;
         Height = datas.Height;
         Depth = datas.Depth;
-        WhatNo = datas.WhatNo;
+        //WhatNo = datas.WhatNo;
         cnt = datas.cnt;
 
 
