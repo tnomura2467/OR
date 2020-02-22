@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 using RosSharp.RosBridgeClient;
 
 
@@ -30,6 +30,14 @@ public class DBSubscribe : MonoBehaviour
     public int[] BSec;
     public int[] TSec;
 
+    public float nowtime;
+    public struct NowTime
+    {
+        public int hour;
+        public int min;
+        public int sec;
+    }
+
     public struct BeginTime
     {
         public int hour;
@@ -44,6 +52,7 @@ public class DBSubscribe : MonoBehaviour
     }
     BeginTime bt = new BeginTime { hour = 0, min = 0, sec = 0 };
     EndTime et = new EndTime { hour = 0, min = 0, sec = 0 };
+    NowTime nt = new NowTime { hour = 0, min = 0, sec = 0 };
 
     public GameObject Plane0;
     public GameObject Plane1;
@@ -53,6 +62,12 @@ public class DBSubscribe : MonoBehaviour
     public GameObject Plane5;
 
     public GameObject[] Plane;
+
+
+    public GameObject textt;
+    TextMesh texttime;
+
+
 
     public GameObject slider;
     public float Slidery;
@@ -70,6 +85,10 @@ public class DBSubscribe : MonoBehaviour
         Plane[3] = Plane3;
         Plane[4] = Plane4;
         Plane[5] = Plane5;
+
+        nowtime = 0;
+        texttime = textt.GetComponent<TextMesh>();
+
         Invoke("Init", 1.0f);
     }
 
@@ -146,23 +165,28 @@ public class DBSubscribe : MonoBehaviour
         {
             Slidery = 0;
         }
- 
+
+        nowtime = MinSec + (MaxSec - MinSec) * (Slidery / 2);
         Slidery = Slidery * (MaxSec - MinSec) / 2f;
+        
+        nt.hour = (int)nowtime / 3600;
+        nt.min = ((int)nowtime % 3600)/60;
+        nt.sec = ((int)nowtime % 3600) % 60;
+
+        texttime.text = "Time|| "+nt.hour.ToString()+":" + nt.min.ToString() + ":" + nt.sec.ToString();
+
 
         for (int i = 0; i < cnt; i++)
         {
 
             BSec[i] = ChangeTime(TimeB[i]);
             TSec[i] = ChangeTime(TimeT[i]);
-            Debug.Log(BSec[i]);
-            Debug.Log(TSec[i]);
+
 
             if (TSec[i] == 0)
             {
                 TSec[i] = MaxSec;
             }
-
-            
 
             if ((BSec[i] - MinSec) <= Slidery && Slidery <= (TSec[i] - MinSec))
             {
